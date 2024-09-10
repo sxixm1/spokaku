@@ -1,0 +1,936 @@
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 子要素を横方向で中央揃え */
+  justify-content: center; /* 子要素を縦方向で中央揃え */
+  min-height: 100vh; /* ビューポートの高さに合わせる */
+  margin: 0;
+}
+
+.bg-light-gray {
+  width: 100%; /* 親要素の幅を100%に */
+  background-color: #EEEEEE;
+}
+
+/* ヘッダー全体のスタイル */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px; 
+  z-index: 1000;
+}
+
+/* ナビゲーション全体のコンテナ */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+/* ロゴのスタイル */
+.logo img {
+  height: 50px; /* ロゴの高さを調整 */
+  width: auto;
+  margin-top: 15px;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 20px;  /* 左端から20pxの位置に配置 */
+  transform: translateY(-50%);  /* 垂直方向の中央揃え */
+}
+
+/* ハンバーガーメニューのスタイル */
+.hamburger-menu {
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger-menu span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.4s;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+  transform: translateY(10px) rotate(-45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(45deg);
+}
+
+/* ナビゲーションメニューのスタイル */
+.nav-menu {
+  display: flex;
+  list-style-type: none;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 216px;
+  margin: 0;
+  background-color: rgba(131, 131, 131, 0.9); /* 背景色と不透明度の設定 */
+  padding: 50px 0px 50px 0px;
+  transition: all 0.4s;
+  z-index: 999;
+  flex-direction: column;
+  overflow-y: auto; /* スクロール可能にする */
+  backdrop-filter: blur(4px); /* 背景のぼかし効果 */
+}
+
+.nav-menu.active {
+  right: 0;
+}
+
+.nav-menu li {
+  padding: 20px;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 18px;
+}
+
+.btn {
+  font-size: 13px;
+  color: #FF0000;
+  background-color: #FFFFFF;
+  border: 2px solid #FF0000;
+  width: 76px;
+  height: 26px;
+  border-radius: 999px; 
+  align-items: center;  /* 縦方向の中央揃え */
+  justify-content: center;  /* 横方向の中央揃え */
+  text-decoration: none;  /* テキストの下線を削除 */
+  display: inline-flex;
+
+}
+
+.btn_1 {
+  font-size: 23px;
+  font-weight: bold;
+  color: #FF0000;
+  background-color: #FFFFFF;
+  border: 3px solid #FF0000;
+  width: 112px;
+  height: 40px;
+  border-radius: 999px; 
+  align-items: center;  /* 縦方向の中央揃え */
+  justify-content: center;  /* 横方向の中央揃え */
+  text-decoration: none;  /* テキストの下線を削除 */
+  display: inline-flex;
+}
+
+.gym_book_btn {
+  font-size: 17px;
+  font-weight: bold;
+  color: #FF0000;
+  background-color: #FFFFFF;
+  border: 3px solid #FF0000;
+  width: 136px;
+  height: 40px;
+  border-radius: 999px;  /* ボタンの角を40pxに丸める */
+  align-items: center;  /* 縦方向の中央揃え */
+  justify-content: center;  /* 横方向の中央揃え */
+  text-decoration: none;  /* テキストの下線を削除 */
+  display: inline-flex;
+
+}
+
+/* ボタンをハンバーガーメニューの隣に配置 */
+.cta-buttons {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;  /* ボタンがハンバーガーメニューの隣に配置されるように右揃え */
+  margin-right: 60px; /* ハンバーガーメニューからの距離を設定 */
+}
+
+/* モバイル用のCTAボタンスタイル */
+.mobile-cta-buttons {
+  display: none;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+
+.key_visual {
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box; /* パディングやボーダーを含めてサイズを計算 */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  overflow: hidden;
+}
+
+.key_visual_img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.desktop-visual {
+  display: block;
+}
+
+.mobile-visual {
+  display: none;
+}
+
+.large_heading {
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 67px; 
+  position: relative;
+}
+
+.large_heading::after {
+  content: '';
+  position: absolute;
+  bottom: -27px; /* 24px (線までの距離) + 3px (線の太さ) */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 152px;
+  height: 3px;
+  background-color: #FF0000;
+}
+
+.medium_heading {
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 35px; /* 16px (線までの距離) + 3px (線の太さ) + 16px (線から次の要素までの距離) */
+  position: relative;
+}
+
+.medium_heading::after {
+  content: '';
+  position: absolute;
+  bottom: -19px; /* 16px (線までの距離) + 3px (線の太さ) */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 84px;
+  height: 3px;
+  background-color: #000000;
+}
+
+/* mainタグ */
+.contact_main {
+  max-width: 980px;
+  width: 100%;
+  margin: 0 auto;
+}
+/* 見出し */
+.contact_h1 {
+  font-size: 2.4rem;
+  font-weight: 500;
+  margin-top: 1em;
+  text-align: center;
+}
+/* formタグ：フォーム全体 */
+.contact_form {
+  margin: 40px;
+}
+
+/* ------------------------------------ */
+/* フォーム共通書式 */
+/* ------------------------------------ */
+/* labelタグ：項目のラベルと入力欄を囲うタグ */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0px 40px 0px 40px;
+}
+
+
+.form-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-field {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-block-check {
+  display: flex;
+  align-items: center;
+}
+
+.label-radio {
+  display: flex;
+  align-items: center;
+}
+
+.input-checkbox {
+  margin-right: 10px;
+}
+
+.radio-span {
+  font-size: 14px;
+}
+
+.form-required {
+  color: #e60012;
+  margin-left: 5px;
+  width: 80px;
+}
+
+.form-btn {
+  padding: 15px;
+  font-size: 17px;
+  font-weight: bold;
+  color: #FF0000;
+  background-color: #FFFFFF;
+  border: 3px solid #FF0000;
+  width: 216px;
+  height: 48px;
+  border-radius: 999px;
+  align-items: center;  /* 縦方向の中央揃え */
+  justify-content: center;  /* 横方向の中央揃え */
+  text-decoration: none;  /* テキストの下線を削除 */
+  display: inline-flex;
+}
+
+.form-btn:hover {
+  background-color: #cc000f;
+}
+
+.privacy {
+  font-size: 12px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.book {
+  padding-bottom: 40px;
+}
+
+.price {
+  margin: 40px 0px 40px 0px;
+}
+
+.payment_methods {
+  text-align: center; /* テキストを中央揃え */
+}
+
+.img_pay{
+  width: 278px; 
+  height: auto; 
+  margin: 0px 20px 0px 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.comment_23 {
+  font-size: 23px; /* フォントサイズ */
+  margin-bottom: 16px;
+}
+
+.comment_23_40 {
+  font-size: 23px; /* フォントサイズ */
+  margin: 40px 0px 40px 0px;
+}
+
+.comment_23_B {
+  font-size: 23px; /* フォントサイズ */
+  font-weight: bold;
+}
+
+.comment_17 {
+  font-size: 17px; /* フォントサイズ */
+}
+
+.comment_17_B {
+  font-size: 17px; /* フォントサイズ */
+  font-weight: bold;
+}
+
+.comment_17_0 {
+  font-size: 17px; /* フォントサイズ */
+  padding: 0; 
+  margin: 0;
+}
+
+.comment_17_40 {
+  font-size: 17px; /* フォントサイズ */
+  margin: 40px 0px 40px 0px;
+}
+
+.comment_course{
+  font-size: 17px; /* フォントサイズ */
+  text-align: center;
+}
+
+.comment_27 {
+  font-size: 27px; /* フォントサイズ */
+}
+
+.comment_27_0 {
+  font-size: 27px; /* フォントサイズ */
+  padding: 0; 
+  margin: 3px 0px 0px 0px;
+}
+
+.comment_27_B {
+  font-size: 27px; /* フォントサイズ */
+  font-weight: bold;
+}
+
+.comment_27_B_0 {
+  font-size: 27px; /* フォントサイズ */
+  font-weight: bold;
+  padding: 0; 
+  margin: 3px 0px 0px 0px;
+}
+
+.price_table {
+  table-layout: fixed; /* テーブル全体のレイアウトを固定 */
+  border-collapse: collapse; /* セル間のスペースを無くす */
+  background-color: #ffffff; /* セルの背景色 */
+  margin: 0 auto;
+}
+
+.price_table td {
+  width: 259px; /* セルの幅 */
+  height: 88px; /* セルの高さ */
+  background-color: #ffffff; /* セル内の色 */
+  border-bottom: 8px solid #eeeeee; /* 下線の色と太さ */
+  text-align: center; /* テキストを中央揃え */
+  vertical-align: middle; /* 縦方向の中央揃え */
+  font-size: 29px; /* フォントサイズ */
+  font-weight: bold; /* フォントの太さ */
+  color: #333; /* テキストの色 */
+}
+
+.price_table tr:last-child td {
+  border-bottom: none; /* 最後の行の下線を無くす */
+}
+
+.box_step {
+  display: flex; /* Flexboxを使用して要素を横並びに */
+  align-items: center; /* 縦方向の中央揃え */
+  gap: 10px; /* 左のnumberと右の要素たちの間隔を10pxに */
+  margin-left: 80px;  
+  margin-bottom: 33px;
+}
+
+.box_step:last-child {
+  margin-bottom: 0 ; /* 最後のbox_stepの下に余白をつけない */
+}
+
+.container .box_step:first-child {
+  margin-top: 0; /* 最初のbox_stepの上に余白をつけない */
+}
+
+.number {
+  display: block;
+}
+
+.box_step div {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment_step {
+  margin: 0; /* デフォルトの余白をリセット */
+}
+
+.comment_step_17 {
+  padding: 0px 0px 0px 130px;  
+}
+
+.course_table {
+  table-layout: fixed; /* テーブル全体のレイアウトを固定 */
+  border-collapse: collapse; /* セル間のスペースを無くす */
+  background-color: #ffffff; /* セルの背景色 */
+  margin: 0 auto;
+  font-size: 17px; /* フォントサイズ */
+}
+
+.course_table td {
+  height: 160px; /* 各セルの高さを160pxに設定 */
+  padding: 0 20px; /* 任意でセル内のパディングを設定 */
+  background-color: #ffffff; /* セル内の色 */
+  border-bottom: 8px solid #eeeeee; /* 下線の色と太さ */
+  text-align: center; /* テキストを中央揃え */
+  vertical-align: middle; /* 縦方向の中央揃え */
+  color: #333; /* テキストの色 */
+}
+
+.left-column {
+  width: 256px; /* 左の列の幅を256pxに設定 */
+}
+
+.right-column {
+  width: 512px; /* 右の列の幅を512pxに設定 */
+}
+
+.course_table tr:last-child td {
+  border-bottom: none; /* 最後の行の下線を無くす */
+}
+
+.items {
+  display: flex; /* Flexboxを使用して要素を横並びに */
+  gap: 80px;
+}
+
+.circle_red {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #FF0000;/*背景色*/
+}
+
+.circle_border_black {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid #000000; /* 黒い縁を設定 */
+  background: transparent; /* 背景を透明に設定 */
+}
+
+.r_red {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 子要素を縦方向に中央揃え */
+  gap: 50px; /* 各アイテム間に50pxの間隔を設定 */
+}
+
+.o_border_black {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 子要素を縦方向に中央揃え */
+  gap: 50px; /* 各アイテム間に50pxの間隔を設定 */
+}
+
+.r_red .circle_red {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.o_border_black .circle_border_black {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+}
+
+.circle_red {
+  background: #FF0000;
+}
+
+.circle_border_black {
+  border: 2px solid #000000;
+  background: transparent;
+}
+
+.required, 
+.optional {
+  gap: 50px; /* r_redとo_border_blackの間に50pxの間隔を設定 */
+}
+
+.required .r_item, 
+.optional .o_item {
+  display: flex;
+  align-items: center;
+  gap: 27px; /* omment_27_Bとomment_27の間に50pxの間隔を設定 */
+}
+
+.required .r_item,
+.optional .o_item {
+  margin: 1px; 
+}
+
+.delete_gap {
+  flex-direction: column;
+  gap: 0px ; 
+}
+
+.delete_margin {
+  margin: 0px;
+}
+
+.quick_register_btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 200px;
+}
+
+.gym {
+  margin-bottom: 40px;
+}
+
+.head_gym{
+  display: flex;
+  justify-content: space-between; /* 要素を左右の端に配置 */
+  align-items: center; /* 必要に応じて縦方向の中央揃えも実現 */
+  width: 95%; /* コンテナ全体の幅を指定 */
+  max-width: 520px; /* コンテナ全体の幅を指定 */
+  margin: 0 auto; /* 左右中央に配置 */
+
+}
+
+.gym_contents {
+  table-layout: fixed; /* テーブル全体のレイアウトを固定 */
+  border-spacing: 9px 9px; /* 横方向の余白を10px、縦方向の余白を0に設定 */
+  border-collapse: separate; /* border-spacing を有効にするために separate を設定 */
+  margin: 0 auto;
+}
+
+.gym_contents td {
+  width: 272px; /* セルの幅 */
+  height: 88px; /* セルの高さ */
+  background-color: #ffffff; /* セル内の色 */
+  text-align: center; /* テキストを中央揃え */
+  vertical-align: middle; /* 縦方向の中央揃え */
+  font-size: 17px; /* フォントサイズ */
+  color: #333; /* テキストの色 */
+}
+
+.gym_comment {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 16px;
+}
+
+.gym_contents tr:last-child td {
+  border-bottom: none; /* 最後の行の下線を無くす */
+}
+
+.name_gym {
+  height: 88px; 
+  display: flex;
+  justify-content: center; /* 横方向の中央揃え */
+  align-items: center; /* 縦方向の中央揃え */
+}
+
+
+.trainer {
+  display: flex;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.parson {
+  width: 272px; 
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.trainer {
+  margin-bottom: 40px;
+}
+
+.comment {
+  text-align: left; /* テキストを左揃えにする */
+}
+
+.faq_table {
+  table-layout: fixed; /* テーブル全体のレイアウトを固定 */
+  border-collapse: collapse; /* セル間のスペースを無くす */
+  margin: 0 auto;
+  font-size: 17px; /* フォントサイズ */
+}
+
+.faq_table td {
+  height: 40px;
+  vertical-align: middle; /* 縦方向の中央揃え */
+}
+
+.q_a {
+  width: 60px;
+  text-align: center; /* テキストを中央揃え */
+}
+
+.comment_faq {
+  width: 624px; 
+}
+
+.summary {
+  max-width: 648px;
+}
+
+.qr {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.sns {
+  display: flex;
+  gap: 40px;
+}
+
+.sns_gray {
+  display: flex;
+  max-width: 550px ;
+  gap: 40px;
+}
+
+.link_sns{
+  margin: 0 auto;
+  width: auto; 
+}
+
+.direct_contact {
+  padding-bottom: 40px;
+}
+
+@media (max-width: 768px) {  /* この幅は適宜調整してください */
+  .container {
+    max-width: 100%; /* 画面幅いっぱいに広げる */
+    padding: 0px 20px 0px 20px; /* スマホでは左右の余白をなくす */
+  }
+
+   .cta-buttons {
+    display: none; /* モバイルではボタンを隠す */
+  }
+
+  .hamburger-menu {
+    display: flex; /* モバイルではハンバーガーメニューを表示 */
+    position: absolute;
+    top: 20px;
+    right: 20px; /* 右端に固定 */
+  }
+
+  .nav-menu {
+    right: -100%; /* メニュー非表示時 */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-menu.active {
+    right: 0; /* メニュー表示時 */
+  }
+
+  .mobile-cta-buttons {
+    display: flex;
+    padding: 0 40px;
+  }
+
+  .mobile-cta-buttons .btn {
+    width: 100px ;
+    color: #FF0000;
+  }
+
+  .gym_book_btn {
+    font-size: 12px;
+    border: 2px solid #FF0000;
+    width: 100px;
+    height: 27px;
+  
+  }
+
+  .btn_1 {
+    font-size: 16px;
+    border: 2px solid #FF0000;
+    width: 100px;
+    height: 27px;
+  }
+
+  .desktop_visual {
+    display: none;
+  }
+
+  .large_heading {
+    font-size: 25px; /* 35pxの70%を四捨五入 */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 47px; /* 67pxの70%を四捨五入 */
+    position: relative;
+  }
+  
+  .large_heading::after {
+    content: '';
+    position: absolute;
+    bottom: -19px; /* 27pxの70%を四捨五入 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 106px; /* 152pxの70%を四捨五入 */
+    height: 2px; /* 3pxの70%を四捨五入 */
+    background-color: #FF0000;
+  }
+  
+  .medium_heading {
+    font-size: 19px; /* 27pxの70%を四捨五入 */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px; /* 35pxの70%を四捨五入 */
+    position: relative;
+  }
+  
+  .medium_heading::after {
+    content: '';
+    position: absolute;
+    bottom: -13px; /* 19pxの70%を四捨五入 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 59px; /* 84pxの70%を四捨五入 */
+    height: 2px; /* 3pxの70%を四捨五入 */
+    background-color: #000000;
+  }
+  
+  /* mainタグ */
+  .contact_main {
+    max-width: 686px; /* 980pxの70%を四捨五入 */
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .img_pay {
+    width: 164px; /* 100pxの70%に縮小 */
+    height: auto; /* アスペクト比を維持 */
+  }
+  
+
+  .mobile_visual {
+    display: block;
+  }
+
+  .box_step {
+    margin-left : 0;
+  }
+
+  .items {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .left-column {
+    width: 90px;
+  }
+
+  .trainer {
+    display: block;
+  }
+
+  .comment_23 {
+    font-size: 16px; /* 23pxの70%を四捨五入 */
+  }
+  
+  .comment_23_40 {
+    font-size: 16px; /* 23pxの70%を四捨五入 */
+  }
+  
+  .comment_23_B {
+    font-size: 16px; /* 23pxの70%を四捨五入 */
+  }
+  
+  .comment_17 {
+    font-size: 12px; /* 17pxの70%を四捨五入 */
+  }
+  
+  .comment_17_B {
+    font-size: 12px; /* 17pxの70%を四捨五入 */
+  }
+  
+  .comment_17_0 {
+    font-size: 12px; /* 17pxの70%を四捨五入 */
+  }
+  
+  .comment_17_40 {
+    font-size: 12px; /* 17pxの70%を四捨五入 */
+  }
+  
+  .comment_course{
+    font-size: 12px; /* 17pxの70%を四捨五入 */
+  }
+  
+  .comment_27 {
+    font-size: 19px; /* 27pxの70%を四捨五入 */
+  }
+  
+  .comment_27_0 {
+    font-size: 19px; /* 27pxの70%を四捨五入 */
+  }
+  
+  .comment_27_B {
+    font-size: 19px; /* 27pxの70%を四捨五入 */
+  }
+  
+  .comment_27_B_0 {
+    font-size: 19px; /* 27pxの70%を四捨五入 */
+  }
+
+  .gym_contents td {
+    font-size: 12px;
+  }
+
+  .faq_table {
+    font-size: 12px; /* フォントサイズ */
+  }
+
+  .price_table td {
+    font-size: 20px;
+  }
+
+  .parson {
+    margin-bottom: 40px;
+  }
+
+  .parson-last {
+    margin-bottom: none; 
+  }
+
+  .name_gym {
+    height: 40px;
+  }
+
+  .quick_register_btn {
+    height: 150px;
+  }
+
+  .form-btn {
+    padding: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FF0000;
+    background-color: #FFFFFF;
+    border: 2px solid #FF0000;
+    width: 148px;
+    height: 48px;
+
+    .form-required {
+
+    }
+}
